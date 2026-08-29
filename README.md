@@ -1,20 +1,43 @@
 # Trello Epic Power-Up
 
-An open-source, self-hosted Trello Power-Up for simple parent/child card relationships.
+An open-source, self-hosted Trello Power-Up inspired by the workflow of Hello Epics.
 
-## V1 features
+## Features
 
-- Set a parent Epic on a card.
-- Show the parent Epic on the card back.
-- Show child cards.
-- Calculate child completion progress.
-- Remove a parent.
-- Remove child relationships.
-- No external database required.
+- Hello Epics-style menu:
+  - Attach Parent
+  - Create and attach new children
+  - Attach existing children
+- Parent/child relationships stored in Trello Power-Up data.
+- Reciprocal relationship: parent knows children and child knows its parent.
+- Existing child cards can be multi-selected.
+- Rich related-card UI with labels, members, list, status and progress.
+- Card badge showing child completion.
+- Optional cross-board card search through the Trello REST API.
+- No external database.
 
-## Important V1 limitation
+## REST API configuration
 
-Trello Power-Up iframes are isolated. The initial implementation uses Trello plugin data on each card and is intentionally simple. Cross-board relationships and a polished "add existing child" workflow are planned for V2.
+Basic same-board relationships work without REST authorization.
+
+The following features need the Power-Up API key:
+
+- Create child cards
+- Search cards on other boards
+
+1. Open the Trello App Admin Portal: https://trello.com/apps/admin
+2. Open your Power-Up.
+3. Open the API Key tab.
+4. Generate the API Key.
+5. Add it to Vercel as:
+
+```text
+VITE_TRELLO_APP_KEY=<your-api-key>
+```
+
+6. Redeploy.
+
+The API key identifies your Power-Up. The user's Trello token is requested through Trello's REST API authorization flow and is stored by Trello.
 
 ## Local development
 
@@ -23,7 +46,7 @@ npm install
 npm run dev
 ```
 
-The Vite dev server must be exposed through HTTPS for Trello. For local testing, use an HTTPS tunnel such as Cloudflare Tunnel or ngrok.
+For Trello testing, serve the app over HTTPS.
 
 ## Production
 
@@ -32,17 +55,17 @@ npm install
 npm run build
 ```
 
-Deploy the generated `dist/` directory to a static HTTPS host such as Vercel, Netlify, or GitHub Pages.
+Deploy `dist/` to Vercel or another HTTPS static host.
 
-## Trello configuration
+## Trello Power-Up capabilities
 
-1. Open the Trello App Admin Portal: https://trello.com/apps/admin
-2. Create a new Power-Up owned by your Workspace.
-3. Set the Connector URL to the deployed `index.html` URL.
-4. Enable the capabilities:
-   - `card-buttons`
-   - `card-back-section`
-5. Enable the custom Power-Up on a board in that Workspace.
+Enable these in the Trello App Admin Portal:
+
+- `card-buttons`
+- `card-back-section`
+- `card-badges`
+
+Set the Connector URL to the deployed root URL.
 
 ## License
 
