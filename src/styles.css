@@ -1,0 +1,43 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172b4d;
+  background: #fff;
+  font-size: 14px;
+}
+button {
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.primary { background: #0c66e4; color: white; }
+.secondary { background: #e9f2ff; color: #0c66e4; }
+.danger { background: #ffeceb; color: #ae2e24; }
+.container { padding: 12px; }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.title { font-size: 16px; font-weight: 700; }
+.muted { color: #5e6c84; }
+.progress {
+  height: 8px; background: #dfe1e6; border-radius: 99px; overflow: hidden;
+}
+.progress > div { height: 100%; background: #22a06b; }
+.meta { margin: 8px 0 12px; font-size: 12px; color: #5e6c84; }
+.card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; padding: 9px 0; border-bottom: 1px solid #ebecf0;
+}
+.card-main { min-width: 0; }
+.card-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-link { color: #0c66e4; text-decoration: none; }
+.card-actions { display: flex; gap: 4px; flex-shrink: 0; }
+.small { padding: 5px 8px; font-size: 12px; }
+.empty { padding: 18px 0; text-align: center; }
+input {
+  width: 100%; padding: 9px 10px; border: 1px solid #b6c2cf;
+  border-radius: 4px; margin: 10px 0;
+}
+.list { max-height: 310px; overflow: auto; }
+.error { color: #ae2e24; margin-top: 8px; }
