@@ -251,7 +251,7 @@ export async function restFetch(t: any, path: string, options: RequestInit = {})
   if (!token) throw new Error('Trello authorization was not completed.')
 
   const key = import.meta.env.VITE_TRELLO_APP_KEY
-  const url = new URL(`https://api.trello.com/1/${path.replace(/^\\//, '')}`)
+  const url = new URL(`https://api.trello.com/1/${path.replace(/^\//, '')}`)
   url.searchParams.set('key', key)
   url.searchParams.set('token', token)
 
