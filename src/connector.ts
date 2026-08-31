@@ -72,10 +72,26 @@ window.TrelloPowerUp.initialize(
 
     'card-badges': (t: any) =>
       t.get('card', 'shared', 'epicRelationship', null).then((rel: any) => {
-        const count = rel?.childIds?.length || 0
+        const parentId = rel?.parentId || null
+        const childIds = Array.isArray(rel?.childIds)
+          ? rel.childIds
+          : []
+
+        const relatedIds = new Set([
+          ...(parentId ? [parentId] : []),
+          ...childIds,
+        ])
+
+        const count = relatedIds.size
+
         if (!count) return []
-        const done = (rel.childSnapshots || []).filter((c: any) => c.closed || c.dueComplete).length
-        return [{ text: `${done}/${count}`, color: done === count ? 'green' : 'blue' }]
+
+        return [
+          {
+            text: `Related to ${count} ${count === 1 ? 'card' : 'cards'}`,
+            color: 'blue',
+          },
+        ]
       }),
   },
   {
