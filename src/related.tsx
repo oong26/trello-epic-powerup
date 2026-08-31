@@ -133,13 +133,13 @@ function App() {
     <div className="container related-container">
       <div className="related-header">
         <div>
-          <div className="eyebrow">EPIC RELATIONSHIPS</div>
+          <div className="eyebrow">Card Relationships</div>
           <div className="section-title">Related Cards</div>
         </div>
         <button
           className="manage-button"
           onClick={() => t.popup({
-            title: 'Epic Relationships',
+            title: 'Card Relationships',
             items: [
               {
                 text: 'Attach Parent',

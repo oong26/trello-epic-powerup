@@ -201,7 +201,7 @@ function App() {
 
   return (
     <div className="container picker-container">
-      <div className="eyebrow">EPIC RELATIONSHIPS</div>
+      <div className="eyebrow">Card Relationships</div>
       <div className="picker-title">{title}</div>
       <p className="helper">{subtitle}</p>
 

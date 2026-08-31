@@ -13,7 +13,7 @@ const icon = `${window.location.origin}/icon.svg`
 
 function openManager(t: any) {
   return t.popup({
-    title: 'Epic Relationships',
+    title: 'Card Relationships',
     items: [
       {
         text: 'Attach Parent',
@@ -51,7 +51,7 @@ window.TrelloPowerUp.initialize(
     'card-buttons': (t: any) => [
       {
         icon,
-        text: 'Epic Relationships',
+        text: 'Card Relationships',
         callback: openManager,
       },
     ],
