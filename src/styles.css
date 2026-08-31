@@ -262,16 +262,52 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   margin: 7px 0 12px;
 }
 
-.search-input, .textarea {
+/* Explicit light styling for controls.
+   Trello's dark theme can leak inherited browser styles into the iframe,
+   so keep the Power-Up's form controls readable in every Trello theme. */
+input,
+textarea,
+select,
+.search-input,
+.textarea {
   width: 100%;
+  box-sizing: border-box;
   padding: 9px 10px;
   border: 1px solid #b6c2cf;
   border-radius: 5px;
   outline: none;
-  background: #fff;
+  background: #fff !important;
+  color: #172b4d !important;
+  caret-color: #172b4d;
+  -webkit-text-fill-color: #172b4d;
 }
 
-.search-input:focus, .textarea:focus { border-color: #0c66e4; }
+.search-input:focus,
+.textarea:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #0c66e4;
+  background: #fff !important;
+  color: #172b4d !important;
+  -webkit-text-fill-color: #172b4d;
+}
+
+input::placeholder,
+textarea::placeholder,
+.search-input::placeholder,
+.textarea::placeholder {
+  color: #6b778c !important;
+  opacity: 1;
+}
+
+input::selection,
+textarea::selection,
+.search-input::selection,
+.textarea::selection {
+  background: #0c66e4;
+  color: #fff;
+}
 
 .textarea { resize: vertical; }
 

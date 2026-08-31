@@ -49,7 +49,7 @@ function CreateChildren({ t, current, onDone }: any) {
 
   async function submit() {
     const list = names
-      .split('\\n')
+      .split('\n')
       .map((name) => name.trim())
       .filter(Boolean)
 
@@ -83,7 +83,7 @@ function CreateChildren({ t, current, onDone }: any) {
         rows={7}
         value={names}
         onChange={(e) => setNames(e.target.value)}
-        placeholder={'Login API\\nLogin UI\\nForgot Password'}
+        placeholder={'Login API\nLogin UI\nForgot Password'}
         autoFocus
       />
       {error && <div className="error">{error}</div>}
@@ -238,8 +238,7 @@ function App() {
       </div>
 
       <button className="primary full-button" disabled={!selected.length} onClick={save}>
-        {mode === 'parent' ? 'Attach Parent' : `Attach ${selected.length || ''} Child${selected.length === 1 ? '' : 'ren'}`
-          .replace(/Attach  Children$/, 'Attach Children')}
+        {mode === 'parent' ? 'Attach Parent' : `Attach ${selected.length || ''} Child${selected.length === 1 ? '' : 'ren'}`.replace(/Attach  Children$/, 'Attach Children')}
       </button>
     </div>
   )
